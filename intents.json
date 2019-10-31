@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "abrir chefcito",
+            "invocationName": "cooking book",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -32,6 +32,63 @@
                     "samples": []
                 },
                 {
+                    "name": "GetByNameIntent",
+                    "slots": [
+                        {
+                            "name": "RecipeSearch",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "buscar {RecipeSearch}",
+                        "recetas llamadas {RecipeSearch}",
+                        "receta llamada {RecipeSearch}",
+                        "encuentra {RecipeSearch}",
+                        "busca receta llamada {RecipeSearch}",
+                        "busca recetas llamadas {RecipeSearch}",
+                        "busca receta {RecipeSearch}",
+                        "busca recetas {RecipeSearch}",
+                        "busca receta sobre {RecipeSearch}",
+                        "busca recetas de {RecipeSearch}",
+                        "busca recetas sobre {RecipeSearch}",
+                        "busca {RecipeSearch}"
+                    ]
+                },
+                {
+                    "name": "GetByCategoryIntent",
+                    "slots": [
+                        {
+                            "name": "CategorySearch",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "busca recetas con la categoria de {CategorySearch}",
+                        "busca recetas de categoria {CategorySearch}",
+                        "busca categoria de {CategorySearch} ",
+                        "busca por categoria {CategorySearch}",
+                        "busca categoria {CategorySearch}",
+                        "busca por {CategorySearch}",
+                        "buscar categoria {CategorySearch}"
+                    ]
+                },
+                {
+                    "name": "NextRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "siguiente receta"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "repetir pasos",
+                        "siguiente paso",
+                        "selecciona receta"
+                    ]
+                },
+                {
                     "name": "CreateIntent",
                     "slots": [
                         {
@@ -40,6 +97,8 @@
                         }
                     ],
                     "samples": [
+                        "agregar otra receta",
+                        "agregar una nueva",
                         "receta nueva llamada {recipeName}",
                         "crear receta {recipeName}",
                         "quiero crear una receta llamada {recipeName}"
@@ -119,7 +178,7 @@
                         }
                     ],
                     "samples": [
-                        "si",
+                        "es {variable}",
                         "{variable}"
                     ]
                 }
@@ -130,17 +189,62 @@
                     "values": [
                         {
                             "name": {
+                                "value": "snack"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "postre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desayuno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yogurt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "media taza de limon ocho manzanas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pasta queso carne"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "papas aceite sal"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "arroz con leche"
                             }
                         },
                         {
                             "name": {
-                                "value": "40 minutos"
+                                "value": "40 minutos",
+                                "synonyms": [
+                                    "30 minutos",
+                                    "20 minutos",
+                                    "10 minutos",
+                                    "50 minutos"
+                                ]
                             }
                         },
                         {
                             "name": {
-                                "value": "1 semana"
+                                "value": "1 hora",
+                                "synonyms": [
+                                    "5 horas",
+                                    "2 horas"
+                                ]
                             }
                         },
                         {
