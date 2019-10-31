@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "cooking book",
+            "invocationName": "cocinando con chefcito",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -180,6 +180,20 @@
                     "samples": [
                         "es {variable}",
                         "{variable}"
+                    ]
+                },
+                {
+                    "name": "GetRandomRecipeIntent",
+                    "slots": [
+                        {
+                            "name": "DurationType",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "no se que cocinar",
+                        "quiero algo {DurationType}",
+                        "quiero una receta {DurationType}"
                     ]
                 }
             ],

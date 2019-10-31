@@ -30,7 +30,8 @@ async function accessSpreadsheet(action, row) {
 
     if (action === 'get') {
         let rows = await promisify(sheet.getRows)({
-            query: searchQuery
+            //query: searchQuery
+            offset: 1
         });
     
         return rows;
@@ -40,15 +41,20 @@ async function accessSpreadsheet(action, row) {
 async function FindByQuery(type, val) {
     recipeIndex = -1;
     stepIndex = -1;
-    searchQuery = type + ' = ' + val;
+    //searchQuery = type + ' = ' + val;
     recipes = await accessSpreadsheet('get');
+
+    if(type === 'duration'){
+        recipes = recipes.filter(recipe => recipe.duration < val);
+    } else {
+        recipes = recipes.filter(recipe => recipe.name.includes(val));
+    }
     
     let speakOutput = 'Lo siento, no encontré ninguna receta sobre ' + val;
     if (recipes.length > 0) {
         // Si tiene espacios no funciona
         speakOutput = 'Encontré ' + recipes.length.toString() + ' recetas sobre '  + val + '. Si deseas escuchar alguna de las recetas di siguiente receta';
     }
-    
     return speakOutput;
 }
 
@@ -82,6 +88,30 @@ const GetByNameIntent = {
             .speak(speakOutput)
             .reprompt('Que deseas hacer ahora?')
             .getResponse();
+    }
+};
+const GetRandomRecipeIntent = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetRandomRecipeIntent';
+    },
+    async handle(handlerInput) {
+        const slots = handlerInput.requestEnvelope.request.intent.slots;
+        const duration = slots['DurationType'].value;
+        
+        let speakOutput = 'Lo siento, no entendí lo que dijiste.'
+        if(duration){
+            if(duration === 'rapida'){
+                speakOutput = await FindByQuery('duration', 20);
+            } else {
+                speakOutput = await FindByQuery('duration', 1000);
+            }
+            
+            return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt('Que deseas hacer ahora?')
+            .getResponse();
+        }
     }
 };
 const GetByCategoryIntent = {
@@ -461,6 +491,7 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
         GetByNameIntent,
+        GetRandomRecipeIntent,
         GetByCategoryIntent,
         NextRecipeIntent,
         SelectRecipeIntent,
