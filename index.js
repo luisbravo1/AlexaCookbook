@@ -371,7 +371,6 @@ const NavIntentHandler = {
             default:
                 speakOutput = 'defawl';
         }
-        speakOutput += ` ${step}`;
         
         return handlerInput.responseBuilder
             .speak(speakOutput)
