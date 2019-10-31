@@ -1,0 +1,171 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "abrir chefcito",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "salir de chefcito",
+                        "deseo terminar",
+                        "terminar receta"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ayuda chefcito",
+                        "necesito ayuda con mi receta",
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "no",
+                        "terminar",
+                        "dejar de hacer receta"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CreateIntent",
+                    "slots": [
+                        {
+                            "name": "recipeName",
+                            "type": "AMAZON.StreetName"
+                        }
+                    ],
+                    "samples": [
+                        "receta nueva llamada {recipeName}",
+                        "crear receta {recipeName}",
+                        "quiero crear una receta llamada {recipeName}"
+                    ]
+                },
+                {
+                    "name": "CreateCategoryIntent",
+                    "slots": [
+                        {
+                            "name": "category",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "La categoria es {category}",
+                        "Es {category}",
+                        "La categoría es {category}"
+                    ]
+                },
+                {
+                    "name": "CreateIngredientsIntent",
+                    "slots": [
+                        {
+                            "name": "ingredients",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "ingredientes {ingredients}",
+                        "otro ingrediente es {ingredients}",
+                        "los ingredientes son {ingredients}"
+                    ]
+                },
+                {
+                    "name": "CreateStepIntent",
+                    "slots": [
+                        {
+                            "name": "step",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "continuar con la receta",
+                        "el siguiente paso es {step}",
+                        "el primer paso es {step}",
+                        "continuar con los pasos"
+                    ]
+                },
+                {
+                    "name": "CreateEndIntent",
+                    "slots": [],
+                    "samples": [
+                        "receta terminada"
+                    ]
+                },
+                {
+                    "name": "CreateDurationIntent",
+                    "slots": [
+                        {
+                            "name": "duration",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "dura {duration}",
+                        "el total es {duration}",
+                        "el tiempo es {duration}",
+                        "la duración es {duration}"
+                    ]
+                },
+                {
+                    "name": "NavIntent",
+                    "slots": [
+                        {
+                            "name": "variable",
+                            "type": "Anything"
+                        }
+                    ],
+                    "samples": [
+                        "si",
+                        "{variable}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Anything",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "arroz con leche"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "40 minutos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "1 semana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10 horas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mexicana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "italiana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravioli"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
