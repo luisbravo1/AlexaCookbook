@@ -1,0 +1,285 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "cocinando con chefcito",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "salir de chefcito",
+                        "deseo terminar",
+                        "terminar receta"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ayuda chefcito",
+                        "necesito ayuda con mi receta",
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "no",
+                        "terminar",
+                        "dejar de hacer receta"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetByNameIntent",
+                    "slots": [
+                        {
+                            "name": "RecipeSearch",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "buscar receta {RecipeSearch}",
+                        "buscar {RecipeSearch}",
+                        "recetas llamadas {RecipeSearch}",
+                        "receta llamada {RecipeSearch}",
+                        "encuentra {RecipeSearch}",
+                        "busca receta llamada {RecipeSearch}",
+                        "busca recetas llamadas {RecipeSearch}",
+                        "busca receta {RecipeSearch}",
+                        "busca recetas {RecipeSearch}",
+                        "busca receta sobre {RecipeSearch}",
+                        "busca recetas de {RecipeSearch}",
+                        "busca recetas sobre {RecipeSearch}",
+                        "busca {RecipeSearch}"
+                    ]
+                },
+                {
+                    "name": "GetByCategoryIntent",
+                    "slots": [
+                        {
+                            "name": "CategorySearch",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "busca recetas con la categoria de {CategorySearch}",
+                        "busca recetas de categoria {CategorySearch}",
+                        "busca categoria de {CategorySearch} ",
+                        "busca por categoria {CategorySearch}",
+                        "busca categoria {CategorySearch}",
+                        "busca por {CategorySearch}",
+                        "buscar categoria {CategorySearch}"
+                    ]
+                },
+                {
+                    "name": "NextRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "siguiente receta"
+                    ]
+                },
+                {
+                    "name": "SelectRecipeIntent",
+                    "slots": [],
+                    "samples": [
+                        "repetir pasos",
+                        "siguiente paso",
+                        "selecciona receta"
+                    ]
+                },
+                {
+                    "name": "CreateIntent",
+                    "slots": [
+                        {
+                            "name": "recipeName",
+                            "type": "AMAZON.StreetName"
+                        }
+                    ],
+                    "samples": [
+                        "crear receta",
+                        "crear nueva receta",
+                        "agregar otra receta",
+                        "agregar una nueva",
+                        "receta nueva llamada {recipeName}",
+                        "crear receta {recipeName}",
+                        "quiero crear una receta llamada {recipeName}"
+                    ]
+                },
+                {
+                    "name": "CreateCategoryIntent",
+                    "slots": [
+                        {
+                            "name": "category",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "La categoria es {category}",
+                        "Es {category}",
+                        "La categoría es {category}"
+                    ]
+                },
+                {
+                    "name": "CreateIngredientsIntent",
+                    "slots": [
+                        {
+                            "name": "ingredients",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "ingredientes {ingredients}",
+                        "otro ingrediente es {ingredients}",
+                        "los ingredientes son {ingredients}"
+                    ]
+                },
+                {
+                    "name": "CreateStepIntent",
+                    "slots": [
+                        {
+                            "name": "step",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "continuar con la receta",
+                        "el siguiente paso es {step}",
+                        "el primer paso es {step}",
+                        "continuar con los pasos"
+                    ]
+                },
+                {
+                    "name": "CreateEndIntent",
+                    "slots": [],
+                    "samples": [
+                        "receta terminada"
+                    ]
+                },
+                {
+                    "name": "CreateDurationIntent",
+                    "slots": [
+                        {
+                            "name": "duration",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "dura {duration}",
+                        "el total es {duration}",
+                        "el tiempo es {duration}",
+                        "la duración es {duration}"
+                    ]
+                },
+                {
+                    "name": "NavIntent",
+                    "slots": [
+                        {
+                            "name": "variable",
+                            "type": "Anything"
+                        }
+                    ],
+                    "samples": [
+                        "es {variable}",
+                        "{variable}"
+                    ]
+                },
+                {
+                    "name": "GetRandomRecipeIntent",
+                    "slots": [
+                        {
+                            "name": "DurationType",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "no se que cocinar",
+                        "quiero algo {DurationType}",
+                        "quiero una receta {DurationType}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Anything",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "torta de chilaquiles"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10",
+                                "synonyms": [
+                                    "90",
+                                    "60",
+                                    "50",
+                                    "40",
+                                    "30",
+                                    "20"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "snack"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "postre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "desayuno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yogurt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "media taza de limon ocho manzanas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pasta queso carne"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "papas aceite sal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arroz con leche"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mexicana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "italiana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ravioli"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

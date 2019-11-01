@@ -46,6 +46,8 @@ async function FindByQuery(type, val) {
 
     if(type === 'duration'){
         recipes = recipes.filter(recipe => recipe.duration < val);
+    } else if (type === 'category') {
+        recipes = recipes.filter(recipe => recipe.category.includes(val));
     } else {
         recipes = recipes.filter(recipe => recipe.name.includes(val));
     }
@@ -147,7 +149,7 @@ const NextRecipeIntent = {
             recipeIndex = 0;
         }
         
-        let speakOutput = 'Receta ' + (recipeIndex+1) + ', ' + recipes[recipeIndex].name + ', duración de ' + recipes[recipeIndex].duration + ' minutos. Si deseas seleccionar esta receta, di selecciona receta. Si deseas escuchar la siguiente receta, di siguiente receta';
+        let speakOutput = 'Receta ' + (recipeIndex+1) + ', ' + recipes[recipeIndex].name + ', duración de ' + recipes[recipeIndex].duration + ' minutos. Los ingredientes son ' + recipes[recipeIndex].ingredients + '. Si deseas seleccionar esta receta, di selecciona receta. Si deseas escuchar la siguiente receta, di siguiente receta';
         
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -167,7 +169,7 @@ const SelectRecipeIntent = {
             stepIndex = 0;
         }
         if (stepIndex >= recipeSteps.length) {
-            speakOutput = 'Fin de la receta. Si deseas escuchar los pasos de nuevo, di repetir pasos. Si deseas buscar una nueva receta di buscar. Si deseas crear una nueva receta di crear receta.';
+            speakOutput = 'Fin de la receta. Si deseas escuchar los pasos de nuevo, di repetir pasos. Si deseas buscar una nueva receta di buscar receta. Si deseas crear una nueva receta di agregar receta.';
             stepIndex = 0;
         } else {
             speakOutput = 'Paso ' + (stepIndex+1) + ', ' + recipeSteps[stepIndex] + '. Si deseas escuchar el siguiente paso, di siguiente paso.';
@@ -349,7 +351,7 @@ const CreateEndIntentHandler = {
     async handle(handlerInput) {
         await accessSpreadsheet('add', recipe);
         const speakOutput = `La receta ${recipe['name']} ha sido agregada a sus recetas. ¿Desea hacer agregar otra receta, buscar una existente o terminar?`;
-        currentStep += 1;
+        currentStep = 0;
         
         return handlerInput.responseBuilder
             .speak(speakOutput)
